@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     initialScale: 1,
     maximumScale: 5,
   },
+  verification: {
+    google: "26RCmuqo_XeZdXBsKGaZlMtRo0dkW7CW0AahWqCLfWM",
+  },
 };
 
 export default function RootLayout({
