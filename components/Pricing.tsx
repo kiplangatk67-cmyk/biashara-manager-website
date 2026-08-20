@@ -1,7 +1,9 @@
+import Link from "next/link";
 import {
   Check,
   Crown,
   ShieldCheck,
+  Sparkles,
   Zap,
 } from "lucide-react";
 
@@ -10,7 +12,7 @@ const plans = [
     name: "1 Week",
     price: "65",
     period: "7 days",
-    description: "Perfect for trying Biashara Manager.",
+    description: "A simple way to try Biashara Manager and get organized.",
     icon: Zap,
     popular: false,
     features: [
@@ -25,7 +27,7 @@ const plans = [
     name: "2 Weeks",
     price: "130",
     period: "14 days",
-    description: "More time to manage and grow your business.",
+    description: "More time to manage your business and explore more tools.",
     icon: ShieldCheck,
     popular: false,
     features: [
@@ -40,7 +42,7 @@ const plans = [
     name: "1 Month",
     price: "250",
     period: "30 days",
-    description: "The best value for growing businesses.",
+    description: "The best value for businesses ready to use Biashara Manager.",
     icon: Crown,
     popular: true,
     features: [
@@ -59,42 +61,47 @@ export default function Pricing() {
       id="pricing"
       className="relative overflow-hidden bg-surface px-5 py-20 sm:px-6 sm:py-28 lg:px-8"
     >
-      <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
+      {/* Background decoration */}
+      <div className="absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-primary/5 blur-3xl" />
+      <div className="absolute -right-40 bottom-20 h-72 w-72 rounded-full bg-secondary/5 blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl">
         {/* Heading */}
-        <div className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-bold uppercase tracking-wider text-primary">
-            Simple Pricing
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-primary shadow-sm">
+            <Sparkles size={14} />
+            Simple & flexible pricing
           </span>
 
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Choose the plan that works for you
+          <h2 className="mt-5 text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+            Choose what works
+            <span className="block text-primary">for your business.</span>
           </h2>
 
-          <p className="mt-4 text-base leading-7 text-muted">
-            Flexible plans designed for small and growing businesses.
-            No complicated commitments.
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-muted sm:text-base">
+            Start with a plan that fits your business today. Upgrade whenever
+            you need more time.
           </p>
         </div>
 
         {/* Pricing cards */}
-        <div className="mx-auto mt-14 grid max-w-6xl gap-6 lg:grid-cols-3">
+        <div className="mx-auto mt-14 grid max-w-6xl gap-6 lg:grid-cols-3 lg:items-stretch">
           {plans.map((plan) => {
             const Icon = plan.icon;
 
             return (
               <div
                 key={plan.name}
-                className={`relative rounded-3xl border bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
+                className={`relative flex flex-col rounded-[28px] border bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl sm:p-7 ${
                   plan.popular
-                    ? "border-primary shadow-xl shadow-primary/10"
+                    ? "border-primary shadow-xl shadow-primary/10 lg:scale-[1.03]"
                     : "border-border"
                 }`}
               >
                 {/* Popular badge */}
                 {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg shadow-primary/20">
+                  <div className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-lg shadow-primary/20">
+                    <Crown size={12} />
                     Best Value
                   </div>
                 )}
@@ -103,24 +110,24 @@ export default function Pricing() {
                 <div
                   className={`flex h-12 w-12 items-center justify-center rounded-2xl ${
                     plan.popular
-                      ? "bg-primary text-white"
+                      ? "bg-primary text-white shadow-lg shadow-primary/20"
                       : "bg-primary/10 text-primary"
                   }`}
                 >
-                  <Icon size={22} />
+                  <Icon size={22} strokeWidth={2} />
                 </div>
 
                 <h3 className="mt-6 text-xl font-bold text-foreground">
                   {plan.name}
                 </h3>
 
-                <p className="mt-2 min-h-12 text-sm leading-6 text-muted">
+                <p className="mt-2 min-h-[48px] text-sm leading-6 text-muted">
                   {plan.description}
                 </p>
 
                 {/* Price */}
                 <div className="mt-7 flex items-end gap-1">
-                  <span className="text-sm font-semibold text-muted">
+                  <span className="mb-2 text-sm font-semibold text-muted">
                     KSh
                   </span>
 
@@ -130,20 +137,20 @@ export default function Pricing() {
                 </div>
 
                 <p className="mt-1 text-xs text-muted">
-                  {plan.period}
+                  Valid for {plan.period}
                 </p>
 
-                {/* Button */}
-                <a
-                  href="#download"
-                  className={`mt-7 flex w-full items-center justify-center rounded-xl px-5 py-3.5 text-sm font-semibold transition ${
+                {/* CTA */}
+                <Link
+                  href="/pricing"
+                  className={`mt-7 flex w-full items-center justify-center rounded-xl px-5 py-3.5 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 ${
                     plan.popular
                       ? "bg-primary text-white shadow-lg shadow-primary/20 hover:bg-primary-dark"
                       : "border border-border bg-white text-foreground hover:border-primary/20 hover:bg-surface"
                   }`}
                 >
                   Get Started
-                </a>
+                </Link>
 
                 {/* Features */}
                 <div className="mt-8 border-t border-border pt-7">
@@ -172,12 +179,12 @@ export default function Pricing() {
         </div>
 
         {/* Trust note */}
-        <div className="mx-auto mt-10 flex max-w-2xl items-center justify-center gap-2 text-center text-xs text-muted">
-          <ShieldCheck size={16} className="shrink-0 text-secondary" />
+        <div className="mx-auto mt-10 flex max-w-2xl items-start justify-center gap-2 text-center text-xs leading-5 text-muted">
+          <ShieldCheck size={16} className="mt-0.5 shrink-0 text-secondary" />
 
           <span>
-            Start with the plan that suits your business and upgrade whenever
-            you need.
+            Choose the plan that suits your business. You can upgrade when you
+            need more time.
           </span>
         </div>
       </div>

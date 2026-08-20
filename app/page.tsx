@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import HomeFeatures from "@/components/HomeFeatures";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import AppShowcase from "@/components/AppShowcase";
@@ -12,21 +11,36 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
+    <div className="min-h-screen bg-surface">
       <Navbar />
 
       <main id="top">
+        {/* Hero */}
         <Hero />
+
+        {/* Core features */}
         <Features />
+
+        {/* How the app works */}
         <HowItWorks />
+
+        {/* App preview */}
         <AppShowcase />
+
+        {/* Benefits */}
         <Benefits />
+
+        {/* Pricing */}
         <Pricing />
+
+        {/* Frequently asked questions */}
         <FAQ />
+
+        {/* Final call to action */}
         <CTA />
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }

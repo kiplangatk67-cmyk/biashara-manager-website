@@ -22,11 +22,17 @@ export default function Button({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 ${styles}`}
+      className={`inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-300 active:scale-[0.98] hover:-translate-y-0.5 sm:w-auto sm:px-6 sm:py-3.5 ${styles}`}
     >
-      {children}
+      <span>{children}</span>
 
-      {showArrow && <ArrowRight size={17} strokeWidth={2} />}
+      {showArrow && (
+        <ArrowRight
+          size={17}
+          strokeWidth={2}
+          className="shrink-0"
+        />
+      )}
     </Link>
   );
 }
