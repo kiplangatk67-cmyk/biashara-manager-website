@@ -16,16 +16,18 @@ const plans = [
     price: "65",
     period: "7 days",
     description:
-      "A flexible option for businesses that want short-term access.",
+      "A simple and affordable way to get full access when you only need it for a short period.",
     icon: Clock3,
     popular: false,
     features: [
-      "Full access to business tools",
+      "Full access to Biashara Manager",
       "Sales management",
       "Product & inventory management",
       "Customer management",
+      "Credit & debt tracking",
       "Expense tracking",
       "Business reports",
+      "Receipt records",
     ],
   },
   {
@@ -33,16 +35,18 @@ const plans = [
     price: "130",
     period: "14 days",
     description:
-      "More time to manage your business without committing to a full month.",
+      "Get more time to organize, manage, and monitor your business without committing to a full month.",
     icon: Sparkles,
     popular: false,
     features: [
-      "Full access to business tools",
+      "Full access to Biashara Manager",
       "Sales management",
       "Product & inventory management",
       "Customer management",
+      "Credit & debt tracking",
       "Expense tracking",
       "Business reports",
+      "Receipt records",
     ],
   },
   {
@@ -50,16 +54,18 @@ const plans = [
     price: "250",
     period: "30 days",
     description:
-      "The best choice for businesses that want uninterrupted access.",
+      "The best value for businesses that want consistent access to their essential management tools.",
     icon: Crown,
     popular: true,
     features: [
-      "Full access to business tools",
+      "Full access to Biashara Manager",
       "Sales management",
       "Product & inventory management",
       "Customer management",
+      "Credit & debt tracking",
       "Expense tracking",
       "Business reports",
+      "Receipt records",
     ],
   },
 ];
@@ -67,9 +73,13 @@ const plans = [
 export default function PricingPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-surface">
-      {/* Hero */}
+      {/* =========================
+          HERO
+      ========================== */}
       <section className="relative overflow-hidden px-5 pb-14 pt-6 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8 lg:pt-10">
+        {/* Background decoration */}
         <div className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
+
         <div className="pointer-events-none absolute -right-32 top-20 h-72 w-72 rounded-full bg-secondary/10 blur-3xl" />
 
         <div className="relative mx-auto max-w-6xl">
@@ -82,22 +92,24 @@ export default function PricingPage() {
             Simple & flexible pricing
           </span>
 
-          <h1 className="mt-5 text-3xl font-bold tracking-tight text-foreground sm:mt-6 sm:text-5xl lg:text-6xl">
-            Choose a plan that
+          <h1 className="mt-5 text-3xl font-bold leading-tight tracking-tight text-foreground sm:mt-6 sm:text-5xl lg:text-6xl">
+            Choose the plan that
             <span className="block text-primary">
               works for your business.
             </span>
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-muted sm:mt-6 sm:text-base sm:leading-7">
-            Start with the period that suits you. Whether you need Biashara
-            Manager for a week, two weeks, or a full month, you get access to
-            the tools you need to manage your business.
+            Get access to the tools you need to manage sales, inventory,
+            customers, expenses, reports, and more. Choose a period that fits
+            your business and your budget.
           </p>
         </div>
       </section>
 
-      {/* Pricing Cards */}
+      {/* =========================
+          PRICING CARDS
+      ========================== */}
       <section className="px-5 pb-16 sm:px-6 sm:pb-24 lg:px-8">
         <div className="mx-auto grid max-w-6xl gap-5 sm:gap-6 lg:grid-cols-3">
           {plans.map((plan) => {
@@ -112,7 +124,7 @@ export default function PricingPage() {
                     : "border-border"
                 }`}
               >
-                {/* Popular Badge */}
+                {/* Popular badge */}
                 {plan.popular && (
                   <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3.5 py-2 text-[10px] font-bold text-white shadow-lg sm:px-4 sm:text-xs">
@@ -122,7 +134,7 @@ export default function PricingPage() {
                   </div>
                 )}
 
-                {/* Icon */}
+                {/* Header */}
                 <div className="flex items-center justify-between">
                   <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary sm:h-12 sm:w-12">
                     <Icon size={21} />
@@ -135,19 +147,19 @@ export default function PricingPage() {
                   )}
                 </div>
 
-                {/* Plan Name */}
+                {/* Plan name */}
                 <h2 className="mt-5 text-xl font-bold text-foreground sm:mt-6">
                   {plan.name}
                 </h2>
 
-                <p className="mt-2 min-h-0 text-sm leading-6 text-muted sm:min-h-[48px]">
+                <p className="mt-2 text-sm leading-6 text-muted sm:min-h-[48px]">
                   {plan.description}
                 </p>
 
                 {/* Price */}
                 <div className="mt-6">
                   <div className="flex items-end gap-1">
-                    <span className="text-sm font-semibold text-muted">
+                    <span className="mb-1 text-sm font-semibold text-muted">
                       KSh
                     </span>
 
@@ -157,7 +169,7 @@ export default function PricingPage() {
                   </div>
 
                   <p className="mt-1 text-xs text-muted">
-                    per {plan.period === "30 days" ? "month" : plan.period}
+                    valid for {plan.period}
                   </p>
                 </div>
 
@@ -170,7 +182,7 @@ export default function PricingPage() {
                       : "border border-border bg-white text-foreground hover:bg-surface"
                   }`}
                 >
-                  Get Started
+                  Choose {plan.name}
                   <ArrowRight size={15} />
                 </Link>
 
@@ -203,7 +215,9 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Trust Section */}
+      {/* =========================
+          TRUST SECTION
+      ========================== */}
       <section className="border-y border-border bg-white px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-8 text-center sm:grid-cols-3">
@@ -213,11 +227,12 @@ export default function PricingPage() {
               </div>
 
               <h3 className="mt-4 text-sm font-bold text-foreground">
-                Simple plans
+                Affordable plans
               </h3>
 
               <p className="mx-auto mt-2 max-w-xs text-xs leading-5 text-muted">
-                Choose the subscription period that fits your business.
+                Flexible options designed to fit different business needs and
+                budgets.
               </p>
             </div>
 
@@ -231,7 +246,8 @@ export default function PricingPage() {
               </h3>
 
               <p className="mx-auto mt-2 max-w-xs text-xs leading-5 text-muted">
-                Your business account is designed with security in mind.
+                Your business account and information are handled with security
+                in mind.
               </p>
             </div>
 
@@ -241,18 +257,20 @@ export default function PricingPage() {
               </div>
 
               <h3 className="mt-4 text-sm font-bold text-foreground">
-                Built for business
+                Full business tools
               </h3>
 
               <p className="mx-auto mt-2 max-w-xs text-xs leading-5 text-muted">
-                Practical tools for managing everyday business activities.
+                Manage the essential parts of your business from one place.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA */}
+      {/* =========================
+          BOTTOM CTA
+      ========================== */}
       <section
         id="get-started"
         className="px-5 py-16 sm:px-6 sm:py-24 lg:px-8"
@@ -263,12 +281,12 @@ export default function PricingPage() {
           </div>
 
           <h2 className="mt-5 text-2xl font-bold tracking-tight sm:text-3xl">
-            Ready to take control of your business?
+            Ready to manage your business smarter?
           </h2>
 
           <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-slate-400">
-            Choose a plan and start managing your business with Biashara
-            Manager.
+            Choose a plan that works for you and start using Biashara Manager
+            to keep your business organized.
           </p>
 
           <Link
@@ -278,6 +296,10 @@ export default function PricingPage() {
             Get Started
             <ArrowRight size={16} />
           </Link>
+
+          <p className="mt-4 text-[11px] text-slate-500">
+            Need help choosing a plan? Contact us and we'll be happy to help.
+          </p>
         </div>
       </section>
     </main>

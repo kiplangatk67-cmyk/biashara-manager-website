@@ -14,43 +14,62 @@ export default function Button({
   variant = "primary",
   showArrow = false,
 }: ButtonProps) {
-  const styles =
-    variant === "primary"
-      ? "bg-primary text-white shadow-md shadow-primary/15 hover:bg-primary-dark"
-      : "border border-border bg-white text-foreground hover:bg-surface";
+  const isPrimary = variant === "primary";
 
   return (
     <Link
       href={href}
       className={`
+        group
         inline-flex
-        min-h-10
+        min-h-11
         w-full
         items-center
         justify-center
-        gap-1.5
-        rounded-lg
-        px-4
-        py-2.5
+        gap-2
+        rounded-xl
+        px-5
+        py-3
         text-[13px]
-        font-semibold
+        font-bold
         transition-all
-        duration-300
+        duration-200
         active:scale-[0.98]
         hover:-translate-y-0.5
+        focus-visible:outline-none
+        focus-visible:ring-2
+        focus-visible:ring-primary
+        focus-visible:ring-offset-2
 
-        sm:min-h-11
+        sm:min-h-12
         sm:w-auto
-        sm:gap-2
-        sm:rounded-xl
-        sm:px-5
-        sm:py-3
+        sm:px-6
+        sm:py-3.5
         sm:text-sm
 
-        lg:px-6
-        lg:py-3.5
+        lg:px-7
 
-        ${styles}
+        ${
+          isPrimary
+            ? `
+              bg-primary
+              text-white
+              shadow-lg
+              shadow-primary/20
+              hover:bg-primary-dark
+              hover:shadow-xl
+            `
+            : `
+              border
+              border-border
+              bg-white
+              text-foreground
+              shadow-sm
+              hover:border-primary/20
+              hover:bg-surface
+              hover:shadow-md
+            `
+        }
       `}
     >
       <span className="whitespace-nowrap">
@@ -61,7 +80,7 @@ export default function Button({
         <ArrowRight
           size={15}
           strokeWidth={2}
-          className="shrink-0 sm:h-[17px] sm:w-[17px]"
+          className="shrink-0 transition-transform duration-200 group-hover:translate-x-1 sm:h-4 sm:w-4"
         />
       )}
     </Link>

@@ -23,12 +23,14 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Biashara Manager helps small and growing businesses manage sales, products, inventory, customers, expenses, credit, receipts, and business performance in one place.",
+    "Biashara Manager is a simple business management app for managing sales, products, inventory, customers, expenses, credit, receipts, and business performance in one place.",
 
   keywords: [
     "Biashara Manager",
+    "Biashara Manager app",
     "business management app",
     "business management software",
+    "small business management",
     "sales management",
     "inventory management",
     "stock management",
@@ -36,8 +38,9 @@ export const metadata: Metadata = {
     "expense tracking",
     "credit management",
     "business reports",
-    "Kenya business app",
+    "business app Kenya",
     "small business app Kenya",
+    "Kenya business management app",
   ],
 
   authors: [
@@ -48,8 +51,13 @@ export const metadata: Metadata = {
 
   creator: "Biashara Manager",
   publisher: "Biashara Manager",
-
   applicationName: "Biashara Manager",
+
+  category: "Business",
+
+  alternates: {
+    canonical: siteUrl,
+  },
 
   robots: {
     index: true,
@@ -74,6 +82,7 @@ export const metadata: Metadata = {
         type: "image/png",
       },
     ],
+
     apple: [
       {
         url: "/icons/apple/apple-icon.png",
@@ -90,12 +99,13 @@ export const metadata: Metadata = {
     description:
       "Manage sales, products, inventory, customers, expenses, credit, receipts, and business performance in one place.",
     locale: "en_KE",
+
     images: [
       {
         url: "/logo/logo.png",
         width: 1200,
         height: 630,
-        alt: "Biashara Manager",
+        alt: "Biashara Manager business management app",
       },
     ],
   },
@@ -104,7 +114,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Biashara Manager | Manage Smarter. Grow Faster.",
     description:
-      "Simple business management tools for sales, inventory, customers, expenses, and business performance.",
+      "Simple business management tools for sales, inventory, customers, expenses, credit, receipts, and business performance.",
     images: ["/logo/logo.png"],
   },
 };

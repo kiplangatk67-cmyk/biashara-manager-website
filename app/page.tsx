@@ -12,29 +12,29 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-surface">
+    <div className="min-h-screen overflow-x-hidden bg-surface">
       <Navbar />
 
       <main id="top">
-        {/* Hero */}
+        {/* Main introduction */}
         <Hero />
 
-        {/* Core features */}
+        {/* What Biashara Manager can do */}
         <Features />
 
-        {/* How the app works */}
+        {/* How it works */}
         <HowItWorks />
 
-        {/* App preview */}
+        {/* App overview */}
         <AppShowcase />
 
-        {/* Real app screenshots */}
+        {/* Real app screens */}
         <ScreenshotGallery />
 
-        {/* Benefits */}
+        {/* Why choose Biashara Manager */}
         <Benefits />
 
-        {/* Pricing */}
+        {/* Subscription plans */}
         <Pricing />
 
         {/* Frequently asked questions */}

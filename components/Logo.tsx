@@ -5,28 +5,32 @@ export default function Logo() {
   return (
     <Link
       href="/"
-      className="group inline-flex min-w-0 items-center gap-2 sm:gap-2.5"
       aria-label="Biashara Manager home"
+      className="group inline-flex min-w-0 items-center gap-2 sm:gap-2.5"
     >
-      {/* Logo icon */}
-      <div className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-primary/10 bg-white shadow-sm transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-md sm:h-11 sm:w-11 sm:rounded-xl">
+      {/* =========================
+          LOGO MARK
+      ========================== */}
+      <div className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white transition-all duration-300 group-hover:-translate-y-0.5 sm:h-10 sm:w-10 sm:rounded-[13px]">
         <Image
           src="/logo.jfif"
-          alt="Biashara Manager"
-          width={44}
-          height={44}
-          className="h-full w-full object-cover"
+          alt="Biashara Manager logo"
+          width={40}
+          height={40}
           priority
+          className="h-full w-full object-contain p-1"
         />
       </div>
 
-      {/* Logo text */}
+      {/* =========================
+          BRAND NAME
+      ========================== */}
       <div className="min-w-0 leading-none">
-        <span className="block truncate text-[14px] font-extrabold tracking-tight text-foreground sm:text-base">
+        <span className="block truncate text-[14px] font-extrabold tracking-[-0.02em] text-foreground sm:text-[16px]">
           Biashara
         </span>
 
-        <span className="mt-0.5 block text-[8px] font-semibold tracking-[0.15em] text-primary sm:mt-1 sm:text-[11px] sm:tracking-[0.18em]">
+        <span className="mt-1 block text-[7px] font-bold tracking-[0.2em] text-primary sm:text-[9px] sm:tracking-[0.22em]">
           MANAGER
         </span>
       </div>

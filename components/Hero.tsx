@@ -16,30 +16,31 @@ export default function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-surface">
-      {/* Background glow */}
-      <div className="pointer-events-none absolute -left-40 top-0 h-64 w-64 rounded-full bg-primary/10 blur-3xl sm:-left-32 sm:top-10 sm:h-80 sm:w-80 lg:h-96 lg:w-96" />
+      {/* Background decoration */}
+      <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl sm:h-96 sm:w-96" />
 
-      <div className="pointer-events-none absolute -right-40 top-24 h-64 w-64 rounded-full bg-secondary/10 blur-3xl sm:-right-32 sm:top-32 sm:h-80 sm:w-80 lg:h-96 lg:w-96" />
+      <div className="pointer-events-none absolute right-0 top-32 h-72 w-72 rounded-full bg-secondary/10 blur-3xl sm:h-96 sm:w-96" />
 
-      <div className="relative mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-16 md:py-20 lg:px-8 lg:py-28">
-        <div className="grid items-center gap-10 md:gap-12 lg:grid-cols-2 lg:gap-16">
-
+      {/* Main content container */}
+      <div className="relative mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24 xl:py-28">
+        <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 xl:gap-20">
+          
           {/* =========================
-              TEXT CONTENT
+              HERO TEXT
           ========================== */}
-          <div className="text-center lg:text-left">
-
+          <div className="max-w-2xl text-center lg:text-left">
+            
             {/* Badge */}
-            <div className="inline-flex max-w-full items-center gap-1.5 rounded-full border border-primary/15 bg-white px-3 py-1.5 text-[10px] font-semibold text-primary shadow-sm sm:gap-2 sm:px-4 sm:py-2 sm:text-xs">
-              <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-primary/10 sm:h-5 sm:w-5">
-                <CheckCircle2 size={11} className="sm:h-[13px] sm:w-[13px]" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white px-4 py-2 text-xs font-semibold text-primary shadow-sm">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10">
+                <CheckCircle2 size={13} />
               </span>
 
-              <span>Simple business management</span>
+              Simple business management
             </div>
 
             {/* Heading */}
-            <h1 className="mx-auto mt-5 max-w-[340px] text-[2rem] font-bold leading-[1.08] tracking-tight text-foreground sm:mt-6 sm:max-w-xl sm:text-5xl lg:mx-0 lg:text-6xl">
+            <h1 className="mt-6 text-[2.35rem] font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[3.7rem] xl:text-6xl">
               Run your business
               <span className="block text-primary">
                 with confidence.
@@ -47,35 +48,35 @@ export default function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="mx-auto mt-4 max-w-[340px] text-[13px] leading-5 text-muted sm:mt-6 sm:max-w-lg sm:text-base sm:leading-7 lg:mx-0 lg:text-lg">
+            <p className="mx-auto mt-6 max-w-xl text-sm leading-6 text-muted sm:text-base sm:leading-7 lg:mx-0 lg:text-lg">
               Manage sales, products, customers, expenses and business
               performance from one simple and powerful platform.
             </p>
 
             {/* Buttons */}
-            <div className="mt-6 flex w-full flex-col gap-2.5 sm:mt-8 sm:flex-row sm:gap-3 lg:w-auto">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <Link
                 href="#download"
-                className="group inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-[13px] font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-primary-dark sm:min-h-12 sm:w-auto sm:px-6 sm:py-3.5 sm:text-sm"
+                className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-primary-dark"
               >
                 Get Started
 
                 <ArrowRight
-                  size={16}
-                  className="transition-transform group-hover:translate-x-1 sm:h-[17px] sm:w-[17px]"
+                  size={17}
+                  className="transition-transform group-hover:translate-x-1"
                 />
               </Link>
 
               <Link
                 href="/features"
-                className="inline-flex min-h-11 w-full items-center justify-center rounded-xl border border-border bg-white px-5 py-3 text-[13px] font-semibold text-foreground shadow-sm transition hover:border-primary/20 hover:bg-surface sm:min-h-12 sm:w-auto sm:px-6 sm:py-3.5 sm:text-sm"
+                className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border bg-white px-7 py-3.5 text-sm font-semibold text-foreground shadow-sm transition hover:border-primary/20 hover:bg-surface"
               >
                 Explore Features
               </Link>
             </div>
 
             {/* Trust points */}
-            <div className="mx-auto mt-6 flex max-w-[340px] flex-wrap justify-center gap-x-4 gap-y-2.5 text-[10px] text-muted sm:mt-7 sm:max-w-none sm:gap-x-5 sm:text-xs lg:mx-0 lg:justify-start">
+            <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-xs text-muted lg:justify-start">
               {[
                 "Easy to use",
                 "Built for businesses",
@@ -86,8 +87,8 @@ export default function Hero() {
                   className="flex items-center gap-1.5 whitespace-nowrap"
                 >
                   <CheckCircle2
-                    size={13}
-                    className="text-secondary sm:h-[14px] sm:w-[14px]"
+                    size={14}
+                    className="text-secondary"
                   />
                   {item}
                 </span>
@@ -98,29 +99,28 @@ export default function Hero() {
           {/* =========================
               DASHBOARD PREVIEW
           ========================== */}
-          <div className="relative mx-auto w-full max-w-[520px] sm:max-w-[560px]">
+          <div className="relative mx-auto w-full max-w-[600px]">
+            
+            {/* Dashboard glow */}
+            <div className="pointer-events-none absolute -inset-8 rounded-full bg-primary/10 blur-3xl" />
 
-            {/* Glow */}
-            <div className="pointer-events-none absolute -inset-5 rounded-full bg-primary/10 blur-3xl sm:-inset-8" />
-
-            {/* Main dashboard container */}
-            <div className="relative rounded-[18px] border border-border bg-white p-1 shadow-2xl shadow-slate-300/40 sm:rounded-[28px] sm:p-2.5">
-              <div className="overflow-hidden rounded-[14px] bg-slate-950 sm:rounded-[22px]">
+            {/* Main dashboard */}
+            <div className="relative rounded-[24px] border border-border bg-white p-2 shadow-2xl shadow-slate-300/40 sm:rounded-[30px] sm:p-2.5">
+              <div className="overflow-hidden rounded-[19px] bg-slate-950 sm:rounded-[23px]">
 
                 {/* Top bar */}
-                <div className="flex items-center justify-between border-b border-white/10 px-3 py-3 sm:px-6 sm:py-4">
-                  <div className="flex min-w-0 items-center gap-2 sm:gap-3">
-
-                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-primary text-[10px] font-bold text-white sm:h-9 sm:w-9 sm:rounded-xl sm:text-sm">
+                <div className="flex items-center justify-between border-b border-white/10 px-4 py-4 sm:px-6 sm:py-5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-sm font-bold text-white sm:h-10 sm:w-10">
                       B
                     </div>
 
-                    <div className="min-w-0">
-                      <p className="text-[7px] text-slate-500 sm:text-[10px]">
+                    <div>
+                      <p className="text-[9px] text-slate-500 sm:text-[10px]">
                         Business Overview
                       </p>
 
-                      <h2 className="truncate text-[11px] font-semibold text-white sm:text-sm">
+                      <h2 className="text-xs font-semibold text-white sm:text-sm">
                         Dashboard
                       </h2>
                     </div>
@@ -138,90 +138,89 @@ export default function Hero() {
                 </div>
 
                 {/* Dashboard content */}
-                <div className="p-2.5 sm:p-5">
+                <div className="p-3 sm:p-5">
 
                   {/* KPI CARDS */}
-                  <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
+                  <div className="grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-3">
 
                     {/* Sales */}
-                    <div className="rounded-lg bg-white/[0.07] p-2.5 sm:rounded-2xl sm:p-3.5">
+                    <div className="rounded-xl bg-white/[0.07] p-3 sm:rounded-2xl sm:p-4">
                       <div className="flex items-center gap-1.5 text-slate-400">
-                        <ShoppingCart size={11} className="sm:h-[13px] sm:w-[13px]" />
+                        <ShoppingCart size={13} />
 
-                        <span className="text-[8px] sm:text-[9px]">
+                        <span className="text-[9px] sm:text-[10px]">
                           Sales
                         </span>
                       </div>
 
-                      <p className="mt-1.5 text-sm font-bold text-white sm:mt-2 sm:text-lg">
+                      <p className="mt-2 text-base font-bold text-white sm:text-lg">
                         KSh 8,450
                       </p>
 
-                      <p className="mt-0.5 text-[7px] text-emerald-400 sm:mt-1 sm:text-[8px]">
+                      <p className="mt-1 text-[8px] text-emerald-400 sm:text-[9px]">
                         +12.5% today
                       </p>
                     </div>
 
                     {/* Products */}
-                    <div className="rounded-lg bg-white/[0.07] p-2.5 sm:rounded-2xl sm:p-3.5">
+                    <div className="rounded-xl bg-white/[0.07] p-3 sm:rounded-2xl sm:p-4">
                       <div className="flex items-center gap-1.5 text-slate-400">
-                        <Package size={11} className="sm:h-[13px] sm:w-[13px]" />
+                        <Package size={13} />
 
-                        <span className="text-[8px] sm:text-[9px]">
+                        <span className="text-[9px] sm:text-[10px]">
                           Products
                         </span>
                       </div>
 
-                      <p className="mt-1.5 text-sm font-bold text-white sm:mt-2 sm:text-lg">
+                      <p className="mt-2 text-base font-bold text-white sm:text-lg">
                         128
                       </p>
 
-                      <p className="mt-0.5 text-[7px] text-slate-500 sm:mt-1 sm:text-[8px]">
+                      <p className="mt-1 text-[8px] text-slate-500 sm:text-[9px]">
                         In inventory
                       </p>
                     </div>
 
                     {/* Customers */}
-                    <div className="col-span-2 rounded-lg bg-white/[0.07] p-2.5 sm:col-span-1 sm:rounded-2xl sm:p-3.5">
+                    <div className="col-span-2 rounded-xl bg-white/[0.07] p-3 sm:col-span-1 sm:rounded-2xl sm:p-4">
                       <div className="flex items-center gap-1.5 text-slate-400">
-                        <Users size={11} className="sm:h-[13px] sm:w-[13px]" />
+                        <Users size={13} />
 
-                        <span className="text-[8px] sm:text-[9px]">
+                        <span className="text-[9px] sm:text-[10px]">
                           Customers
                         </span>
                       </div>
 
-                      <p className="mt-1.5 text-sm font-bold text-white sm:mt-2 sm:text-lg">
+                      <p className="mt-2 text-base font-bold text-white sm:text-lg">
                         246
                       </p>
 
-                      <p className="mt-0.5 text-[7px] text-slate-500 sm:mt-1 sm:text-[8px]">
+                      <p className="mt-1 text-[8px] text-slate-500 sm:text-[9px]">
                         Active customers
                       </p>
                     </div>
                   </div>
 
                   {/* SALES CHART */}
-                  <div className="mt-2 rounded-lg bg-white/[0.07] p-2.5 sm:mt-3 sm:rounded-2xl sm:p-4">
-
+                  <div className="mt-3 rounded-xl bg-white/[0.07] p-3 sm:rounded-2xl sm:p-4">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-1.5">
                         <BarChart3
-                          size={11}
-                          className="text-slate-400 sm:h-[13px] sm:w-[13px]"
+                          size={13}
+                          className="text-slate-400"
                         />
 
-                        <span className="text-[8px] font-medium text-slate-300 sm:text-[10px]">
+                        <span className="text-[9px] font-medium text-slate-300 sm:text-[10px]">
                           Sales Overview
                         </span>
                       </div>
 
-                      <span className="text-[7px] text-slate-500 sm:text-[10px]">
+                      <span className="text-[8px] text-slate-500 sm:text-[10px]">
                         This week
                       </span>
                     </div>
 
-                    <div className="mt-3 flex h-20 items-end gap-1 sm:mt-5 sm:h-32 sm:gap-2">
+                    <div className="mt-4 flex h-24 items-end gap-1.5 sm:mt-5 sm:h-32 sm:gap-2">
                       {chart.map((height, index) => (
                         <div
                           key={index}
@@ -235,7 +234,7 @@ export default function Hero() {
                       ))}
                     </div>
 
-                    <div className="mt-1.5 flex justify-between text-[6px] text-slate-600 sm:mt-2 sm:text-[8px]">
+                    <div className="mt-2 flex justify-between text-[7px] text-slate-600 sm:text-[8px]">
                       <span>Mon</span>
                       <span>Tue</span>
                       <span>Wed</span>
@@ -247,19 +246,18 @@ export default function Hero() {
                   </div>
 
                   {/* RECENT SALES */}
-                  <div className="mt-2 rounded-lg bg-white/[0.07] p-2.5 sm:mt-3 sm:rounded-2xl sm:p-4">
-
+                  <div className="mt-3 rounded-xl bg-white/[0.07] p-3 sm:rounded-2xl sm:p-4">
                     <div className="flex items-center justify-between">
-                      <span className="text-[8px] font-medium text-slate-300 sm:text-[10px]">
+                      <span className="text-[9px] font-medium text-slate-300 sm:text-[10px]">
                         Recent Sales
                       </span>
 
-                      <span className="text-[7px] text-primary sm:text-[9px]">
+                      <span className="text-[8px] text-primary sm:text-[9px]">
                         View all
                       </span>
                     </div>
 
-                    <div className="mt-2 space-y-1.5 sm:mt-3 sm:space-y-2.5">
+                    <div className="mt-3 space-y-2.5">
                       {[
                         ["John Kamau", "KSh 1,250"],
                         ["Mary Wanjiku", "KSh 850"],
@@ -269,18 +267,17 @@ export default function Hero() {
                           key={name}
                           className="flex items-center justify-between"
                         >
-                          <div className="flex items-center gap-1.5 sm:gap-2">
-
-                            <div className="flex h-5 w-5 items-center justify-center rounded-md bg-primary/20 text-[7px] font-bold text-primary sm:h-7 sm:w-7 sm:rounded-lg sm:text-[9px]">
+                          <div className="flex items-center gap-2">
+                            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/20 text-[9px] font-bold text-primary">
                               {name.charAt(0)}
                             </div>
 
-                            <span className="text-[7px] text-slate-400 sm:text-[9px]">
+                            <span className="text-[8px] text-slate-400 sm:text-[9px]">
                               {name}
                             </span>
                           </div>
 
-                          <span className="text-[7px] font-semibold text-white sm:text-[9px]">
+                          <span className="text-[8px] font-semibold text-white sm:text-[9px]">
                             {amount}
                           </span>
                         </div>
@@ -292,7 +289,7 @@ export default function Hero() {
             </div>
 
             {/* Floating sales card */}
-            <div className="absolute -right-3 top-8 z-20 hidden rounded-2xl border border-border bg-white p-3 shadow-xl sm:block lg:-right-6">
+            <div className="absolute -right-3 top-10 z-20 hidden rounded-2xl border border-border bg-white p-3 shadow-xl sm:block lg:-right-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-secondary/10 text-secondary">
                   <TrendingUp size={18} />
