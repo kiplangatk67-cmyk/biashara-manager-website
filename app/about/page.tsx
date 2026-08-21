@@ -6,8 +6,6 @@ import {
   HeartHandshake,
   Lightbulb,
   ShieldCheck,
-  Smartphone,
-  Sparkles,
   Target,
   TrendingUp,
 } from "lucide-react";

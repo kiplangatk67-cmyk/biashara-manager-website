@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import AppShowcase from "@/components/AppShowcase";
+import ScreenshotGallery from "@/components/ScreenshotGallery";
 import Benefits from "@/components/Benefits";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
@@ -26,6 +27,9 @@ export default function Home() {
 
         {/* App preview */}
         <AppShowcase />
+
+        {/* Real app screenshots */}
+        <ScreenshotGallery />
 
         {/* Benefits */}
         <Benefits />

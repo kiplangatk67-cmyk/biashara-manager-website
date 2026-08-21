@@ -75,9 +75,7 @@ export default function SupportPage() {
 
           <h1 className="mt-6 text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             How can we
-            <span className="block text-primary">
-              help you?
-            </span>
+            <span className="block text-primary">help you?</span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg">
@@ -87,10 +85,7 @@ export default function SupportPage() {
 
           {/* Search visual */}
           <div className="mx-auto mt-8 flex max-w-xl items-center gap-3 rounded-2xl border border-border bg-white px-5 py-4 text-left shadow-lg shadow-slate-200/50">
-            <Search
-              size={19}
-              className="shrink-0 text-slate-400"
-            />
+            <Search size={19} className="shrink-0 text-slate-400" />
 
             <span className="text-sm text-slate-400">
               Search for help...
@@ -272,31 +267,22 @@ export default function SupportPage() {
                     size={18}
                     className="text-primary"
                   />
-
                   WhatsApp: +254 765 715 011
                 </a>
 
                 <a
-                  href="mailto:skylineglobalfreelance@gmail.com"
+                  href="mailto:biasharamanager@mail.com"
                   className="flex items-center gap-3 text-sm text-slate-300 transition hover:text-white"
                 >
-                  <Mail
-                    size={18}
-                    className="text-primary"
-                  />
-
-                  skylineglobalfreelance@gmail.com
+                  <Mail size={18} className="text-primary" />
+                  biasharamanager@mail.com
                 </a>
 
                 <a
                   href="tel:+254765715011"
                   className="flex items-center gap-3 text-sm text-slate-300 transition hover:text-white"
                 >
-                  <Phone
-                    size={18}
-                    className="text-primary"
-                  />
-
+                  <Phone size={18} className="text-primary" />
                   +254 765 715 011
                 </a>
               </div>

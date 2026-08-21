@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import {
   ArrowUp,
   Mail,
@@ -28,61 +28,90 @@ const legalLinks = [
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-slate-950 text-white">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
-          {/* Brand */}
-          <div>
-            <div className="inline-flex">
-  <Logo />
-</div>
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
 
-            <p className="mt-5 max-w-sm text-sm leading-7 text-slate-400">
+        {/* =========================
+            MAIN FOOTER
+        ========================== */}
+        <div className="grid gap-9 sm:gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+
+          {/* =========================
+              BRAND
+          ========================== */}
+          <div>
+            {/* Logo */}
+            <div className="inline-flex">
+              <Logo />
+            </div>
+
+            {/* Clearly visible brand name */}
+            <div className="mt-4">
+              <p className="text-lg font-bold tracking-tight text-white sm:text-xl">
+                Biashara Manager
+              </p>
+
+              <p className="mt-1 text-xs font-medium text-primary sm:text-sm">
+                Manage Smarter. Grow Faster.
+              </p>
+            </div>
+
+            <p className="mt-4 max-w-sm text-[13px] leading-5 text-slate-400 sm:mt-5 sm:text-sm sm:leading-7">
               Simple business management tools designed to help you organize
               your operations, understand your numbers, and grow with
               confidence.
             </p>
 
-            <div className="mt-6 flex items-center gap-3">
-              <Link
-                href="mailto:skylineglobalfreelance@gmail.com"
-                aria-label="Email Biashara Manager"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 transition hover:border-primary/30 hover:bg-primary hover:text-white"
-              >
-                <Mail size={17} />
-              </Link>
+            {/* Social/contact buttons */}
+            <div className="mt-5 flex items-center gap-2.5 sm:mt-6 sm:gap-3">
 
-              <Link
+              {/* Email */}
+              <a
+                href="mailto:biasharamanager@gmail.com"
+                aria-label="Email Biashara Manager"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-slate-400 transition hover:border-primary/30 hover:bg-primary hover:text-white sm:h-10 sm:w-10 sm:rounded-xl"
+              >
+                <Mail size={16} className="sm:h-[17px] sm:w-[17px]" />
+              </a>
+
+              {/* WhatsApp */}
+              <a
                 href="https://wa.me/254765715011"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="WhatsApp Biashara Manager"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 transition hover:border-primary/30 hover:bg-primary hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-slate-400 transition hover:border-primary/30 hover:bg-primary hover:text-white sm:h-10 sm:w-10 sm:rounded-xl"
               >
-                <MessageCircle size={17} />
-              </Link>
+                <MessageCircle
+                  size={16}
+                  className="sm:h-[17px] sm:w-[17px]"
+                />
+              </a>
 
-              <Link
+              {/* Phone */}
+              <a
                 href="tel:+254765715011"
                 aria-label="Call Biashara Manager"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-400 transition hover:border-primary/30 hover:bg-primary hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-slate-400 transition hover:border-primary/30 hover:bg-primary hover:text-white sm:h-10 sm:w-10 sm:rounded-xl"
               >
-                <Phone size={17} />
-              </Link>
+                <Phone size={16} className="sm:h-[17px] sm:w-[17px]" />
+              </a>
             </div>
           </div>
 
-          {/* Product */}
+          {/* =========================
+              PRODUCT
+          ========================== */}
           <div>
-            <h3 className="text-sm font-bold text-white">
+            <h3 className="text-[13px] font-bold text-white sm:text-sm">
               Product
             </h3>
 
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-2.5 sm:mt-5 sm:space-y-3">
               {productLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 transition hover:text-primary"
+                    className="text-[13px] text-slate-400 transition hover:text-primary sm:text-sm"
                   >
                     {link.name}
                   </Link>
@@ -91,18 +120,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Support */}
+          {/* =========================
+              SUPPORT
+          ========================== */}
           <div>
-            <h3 className="text-sm font-bold text-white">
+            <h3 className="text-[13px] font-bold text-white sm:text-sm">
               Support
             </h3>
 
-            <ul className="mt-5 space-y-3">
+            <ul className="mt-4 space-y-2.5 sm:mt-5 sm:space-y-3">
               {supportLinks.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 transition hover:text-primary"
+                    className="text-[13px] text-slate-400 transition hover:text-primary sm:text-sm"
                   >
                     {link.name}
                   </Link>
@@ -111,68 +142,94 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* =========================
+              CONTACT
+          ========================== */}
           <div>
-            <h3 className="text-sm font-bold text-white">
+            <h3 className="text-[13px] font-bold text-white sm:text-sm">
               Get in touch
             </h3>
 
-            <p className="mt-5 text-sm leading-6 text-slate-400">
+            <p className="mt-4 text-[13px] leading-5 text-slate-400 sm:mt-5 sm:text-sm sm:leading-6">
               Have a question or need help? Contact us and we'll be happy to
               assist you.
             </p>
 
-            <div className="mt-5 space-y-4">
+            <div className="mt-4 space-y-3 sm:mt-5 sm:space-y-4">
+
+              {/* Email */}
               <a
-                href="mailto:skylineglobalfreelance@gmail.com"
-                className="flex items-start gap-3 text-sm text-slate-400 transition hover:text-primary"
+                href="mailto:biasharamanager@gmail.com"
+                className="flex items-start gap-2.5 text-[13px] text-slate-400 transition hover:text-primary sm:gap-3 sm:text-sm"
               >
-                <Mail size={17} className="mt-0.5 shrink-0" />
+                <Mail
+                  size={16}
+                  className="mt-0.5 shrink-0 sm:h-[17px] sm:w-[17px]"
+                />
+
                 <span className="break-all">
-                  skylineglobalfreelance@gmail.com
+                  biasharamanager@gmail.com
                 </span>
               </a>
 
+              {/* Phone */}
               <a
                 href="tel:+254765715011"
-                className="flex items-center gap-3 text-sm text-slate-400 transition hover:text-primary"
+                className="flex items-center gap-2.5 text-[13px] text-slate-400 transition hover:text-primary sm:gap-3 sm:text-sm"
               >
-                <Phone size={17} className="shrink-0" />
-                +254 765 715 011
+                <Phone
+                  size={16}
+                  className="shrink-0 sm:h-[17px] sm:w-[17px]"
+                />
+
+                <span>+254 765 715 011</span>
               </a>
 
+              {/* WhatsApp */}
               <a
                 href="https://wa.me/254765715011"
                 target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 text-sm text-slate-400 transition hover:text-primary"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-[13px] text-slate-400 transition hover:text-primary sm:gap-3 sm:text-sm"
               >
-                <MessageCircle size={17} className="shrink-0" />
-                WhatsApp
+                <MessageCircle
+                  size={16}
+                  className="shrink-0 sm:h-[17px] sm:w-[17px]"
+                />
+
+                <span>WhatsApp</span>
               </a>
 
-              <div className="flex items-center gap-3 text-sm text-slate-400">
-                <MapPin size={17} className="shrink-0" />
-                Kenya
+              {/* Location */}
+              <div className="flex items-center gap-2.5 text-[13px] text-slate-400 sm:gap-3 sm:text-sm">
+                <MapPin
+                  size={16}
+                  className="shrink-0 sm:h-[17px] sm:w-[17px]"
+                />
+
+                <span>Kenya</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-14 flex flex-col gap-6 border-t border-white/10 pt-7 md:flex-row md:items-center md:justify-between">
+        {/* =========================
+            BOTTOM
+        ========================== */}
+        <div className="mt-10 flex flex-col gap-5 border-t border-white/10 pt-6 sm:mt-14 sm:gap-6 sm:pt-7 md:flex-row md:items-center md:justify-between">
+
           <div>
-            <p className="text-xs text-slate-500">
+            <p className="text-[10px] leading-4 text-slate-500 sm:text-xs">
               © {new Date().getFullYear()} Biashara Manager. All rights
               reserved.
             </p>
 
-            <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+            <div className="mt-2.5 flex flex-wrap gap-x-4 gap-y-2 sm:mt-3 sm:gap-x-5">
               {legalLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-xs text-slate-500 transition hover:text-primary"
+                  className="text-[10px] text-slate-500 transition hover:text-primary sm:text-xs"
                 >
                   {link.name}
                 </Link>
@@ -180,14 +237,16 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Back to top */}
           <a
             href="#top"
-            className="group inline-flex items-center gap-2 self-start rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-xs font-semibold text-slate-400 transition hover:bg-primary hover:text-white md:self-auto"
+            className="group inline-flex min-h-9 items-center gap-1.5 self-start rounded-lg border border-white/10 bg-white/5 px-3.5 py-2 text-[11px] font-semibold text-slate-400 transition hover:bg-primary hover:text-white sm:min-h-10 sm:gap-2 sm:rounded-xl sm:px-4 sm:py-2.5 sm:text-xs md:self-auto"
           >
             Back to top
+
             <ArrowUp
-              size={14}
-              className="transition-transform group-hover:-translate-y-0.5"
+              size={13}
+              className="transition-transform group-hover:-translate-y-0.5 sm:h-[14px] sm:w-[14px]"
             />
           </a>
         </div>
