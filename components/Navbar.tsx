@@ -30,14 +30,9 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-xl">
-      {/* =========================
-          MAIN NAVBAR
-      ========================== */}
-      <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between px-5 sm:px-6 lg:h-20 lg:px-8">
-
-        {/* =========================
-            LOGO
-        ========================== */}
+      {/* Main Navbar */}
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 sm:h-[68px] sm:px-6 lg:h-[72px] lg:px-8">
+        {/* Logo */}
         <Link
           href="/"
           aria-label="Biashara Manager Home"
@@ -49,13 +44,11 @@ export default function Navbar() {
             width={180}
             height={55}
             priority
-            className="h-9 w-auto object-contain sm:h-10 lg:h-11"
+            className="h-7 w-auto object-contain sm:h-8 lg:h-9"
           />
         </Link>
 
-        {/* =========================
-            DESKTOP NAVIGATION
-        ========================== */}
+        {/* Desktop Navigation */}
         <nav
           aria-label="Main navigation"
           className="hidden items-center gap-1 md:flex lg:gap-2"
@@ -71,11 +64,8 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* =========================
-            DESKTOP ACTIONS
-        ========================== */}
+        {/* Desktop Actions */}
         <div className="hidden items-center gap-2 md:flex lg:gap-3">
-
           <Link
             href="/contact"
             className="rounded-xl px-4 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-surface"
@@ -94,12 +84,9 @@ export default function Navbar() {
               className="transition-transform group-hover:translate-x-1"
             />
           </Link>
-
         </div>
 
-        {/* =========================
-            MOBILE MENU BUTTON
-        ========================== */}
+        {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
@@ -107,25 +94,17 @@ export default function Navbar() {
           aria-expanded={open}
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-white text-foreground shadow-sm transition-all active:scale-95 md:hidden"
         >
-          {open ? (
-            <X size={20} />
-          ) : (
-            <Menu size={20} />
-          )}
+          {open ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
-      {/* =========================
-          MOBILE MENU
-      ========================== */}
+      {/* Mobile Menu */}
       {open && (
-        <div className="absolute left-0 right-0 top-[72px] border-t border-border bg-background px-5 pb-6 pt-3 shadow-xl backdrop-blur-xl sm:px-6 md:hidden">
+        <div className="absolute left-0 right-0 top-16 border-t border-border bg-background px-5 pb-6 pt-3 shadow-xl backdrop-blur-xl sm:top-[68px] sm:px-6 md:hidden">
           <nav
             aria-label="Mobile navigation"
             className="mx-auto flex w-full max-w-7xl flex-col"
           >
-
-            {/* Navigation links */}
             {links.map((link) => (
               <Link
                 key={link.name}
@@ -137,7 +116,6 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Contact */}
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
@@ -146,17 +124,14 @@ export default function Navbar() {
               Contact
             </Link>
 
-            {/* CTA */}
             <Link
               href="#download"
               onClick={() => setOpen(false)}
               className="mt-3 flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-dark active:scale-[0.98]"
             >
               Get Started
-
               <ArrowRight size={16} />
             </Link>
-
           </nav>
         </div>
       )}
