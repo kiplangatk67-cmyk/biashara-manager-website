@@ -14,7 +14,7 @@ const plans = [
     price: "65",
     period: "7 days",
     description:
-      "A simple way to get started with Biashara Manager and organize your business.",
+      "A flexible way to start organizing your business and experience Biashara Manager.",
     icon: Zap,
     popular: false,
     features: [
@@ -30,7 +30,7 @@ const plans = [
     price: "130",
     period: "14 days",
     description:
-      "More time to manage your business and explore the tools you need every day.",
+      "More time to manage your daily operations and get more value from your business tools.",
     icon: ShieldCheck,
     popular: false,
     features: [
@@ -46,7 +46,7 @@ const plans = [
     price: "250",
     period: "30 days",
     description:
-      "The best value for businesses ready to make Biashara Manager part of their daily workflow.",
+      "The best value for businesses ready to use Biashara Manager every day.",
     icon: Crown,
     popular: true,
     features: [
@@ -73,7 +73,7 @@ export default function Pricing() {
       <div className="relative mx-auto max-w-7xl">
 
         {/* =========================
-            HEADING
+            INTRO
         ========================== */}
         <div className="mx-auto max-w-3xl text-center">
 
@@ -86,16 +86,16 @@ export default function Pricing() {
             Simple & flexible pricing
           </span>
 
-          <h2 className="mx-auto mt-4 max-w-[350px] text-[1.85rem] font-bold leading-[1.08] tracking-tight text-foreground sm:mt-5 sm:max-w-3xl sm:text-4xl lg:text-5xl">
-            Choose a plan that
+          <h2 className="mx-auto mt-4 max-w-[360px] text-[1.9rem] font-bold leading-[1.08] tracking-tight text-foreground sm:mt-5 sm:max-w-3xl sm:text-4xl lg:text-5xl">
+            Choose the plan that
             <span className="block text-primary">
-              works for you.
+              fits your business.
             </span>
           </h2>
 
-          <p className="mx-auto mt-3 max-w-[350px] text-[13px] leading-5 text-muted sm:mt-5 sm:max-w-2xl sm:text-base sm:leading-7">
-            Start with a flexible plan and use Biashara Manager to organize
-            your sales, products, customers, expenses, and business records.
+          <p className="mx-auto mt-3 max-w-[360px] text-[13px] leading-5 text-muted sm:mt-5 sm:max-w-2xl sm:text-base sm:leading-7">
+            Start small, upgrade when you need more time, and keep your
+            business organized with Biashara Manager.
           </p>
         </div>
 
@@ -103,6 +103,7 @@ export default function Pricing() {
             PRICING CARDS
         ========================== */}
         <div className="mx-auto mt-9 grid max-w-6xl gap-5 sm:mt-12 sm:gap-6 lg:grid-cols-3 lg:items-stretch lg:gap-6">
+
           {plans.map((plan) => {
             const Icon = plan.icon;
 
@@ -116,9 +117,7 @@ export default function Pricing() {
                 }`}
               >
 
-                {/* =========================
-                    POPULAR BADGE
-                ========================== */}
+                {/* Popular badge */}
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-3.5 py-1.5 text-[9px] font-bold uppercase tracking-wider text-white shadow-md shadow-primary/20 sm:px-4 sm:text-[10px]">
                     <Crown
@@ -130,9 +129,7 @@ export default function Pricing() {
                   </div>
                 )}
 
-                {/* =========================
-                    PLAN ICON
-                ========================== */}
+                {/* Plan icon */}
                 <div
                   className={`flex h-11 w-11 items-center justify-center rounded-xl sm:h-13 sm:w-13 sm:rounded-2xl ${
                     plan.popular
@@ -157,9 +154,7 @@ export default function Pricing() {
                   {plan.description}
                 </p>
 
-                {/* =========================
-                    PRICE
-                ========================== */}
+                {/* Price */}
                 <div className="mt-6 flex items-end gap-1 sm:mt-7">
                   <span className="mb-1.5 text-xs font-semibold text-muted sm:mb-2 sm:text-sm">
                     KSh
@@ -174,9 +169,7 @@ export default function Pricing() {
                   Valid for {plan.period}
                 </p>
 
-                {/* =========================
-                    CTA
-                ========================== */}
+                {/* CTA */}
                 <Link
                   href="/pricing"
                   className={`group mt-6 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-[13px] font-bold transition-all duration-200 hover:-translate-y-0.5 sm:mt-7 sm:min-h-12 sm:px-5 sm:py-3.5 sm:text-sm ${
@@ -193,9 +186,7 @@ export default function Pricing() {
                   />
                 </Link>
 
-                {/* =========================
-                    FEATURES
-                ========================== */}
+                {/* Features */}
                 <div className="mt-7 border-t border-border pt-5 sm:mt-8 sm:pt-7">
 
                   <p className="text-[10px] font-bold uppercase tracking-wider text-foreground sm:text-xs">
@@ -221,33 +212,43 @@ export default function Pricing() {
                     ))}
                   </ul>
                 </div>
+
+                {/* Small reassurance */}
+                <div className="mt-6 flex items-center gap-2 border-t border-border pt-5 text-[10px] leading-4 text-muted sm:mt-7 sm:pt-6 sm:text-xs">
+                  <ShieldCheck
+                    size={14}
+                    className="shrink-0 text-secondary"
+                  />
+
+                  <span>
+                    Flexible access with no long-term commitment.
+                  </span>
+                </div>
               </div>
             );
           })}
         </div>
 
         {/* =========================
-            TRUST / PAYMENT NOTE
+            TRUST MESSAGE
         ========================== */}
-        <div className="mx-auto mt-8 flex max-w-2xl items-start justify-center gap-2 text-center text-[10px] leading-4 text-muted sm:mt-10 sm:gap-2.5 sm:text-xs sm:leading-5">
-          <ShieldCheck
-            size={14}
-            className="mt-0.5 shrink-0 text-secondary sm:h-4 sm:w-4"
-          />
+        <div className="mx-auto mt-9 max-w-2xl text-center sm:mt-12">
 
-          <span>
-            Flexible plans with no long-term commitment. Choose the period
-            that fits your business and upgrade whenever you need more time.
-          </span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-white px-4 py-2 text-[10px] font-semibold text-muted shadow-sm sm:text-xs">
+            <Check
+              size={13}
+              className="text-secondary"
+            />
+
+            Choose the period that works for your business.
+          </div>
+
+          <p className="mt-4 text-[10px] leading-4 text-muted sm:text-xs sm:leading-5">
+            Biashara Manager helps you keep your sales, products, customers,
+            expenses, inventory, and business records organized in one place.
+          </p>
         </div>
 
-        {/* =========================
-            FINAL NOTE
-        ========================== */}
-        <div className="mx-auto mt-6 flex max-w-xl items-center justify-center gap-2 text-center text-[10px] text-muted sm:mt-8 sm:text-xs">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-          Start managing your business smarter today.
-        </div>
       </div>
     </section>
   );

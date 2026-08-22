@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import {
   ArrowRight,
@@ -15,61 +13,69 @@ export default function Hero() {
   const chart = [32, 48, 39, 61, 53, 72, 64, 84, 76, 94];
 
   return (
-    <section className="relative overflow-hidden bg-surface">
+    <section
+      aria-labelledby="hero-heading"
+      className="relative overflow-hidden bg-surface"
+    >
       {/* Background decoration */}
-      <div className="pointer-events-none absolute left-0 top-0 h-72 w-72 rounded-full bg-primary/10 blur-3xl sm:h-96 sm:w-96" />
+      <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-primary/10 blur-3xl sm:h-96 sm:w-96" />
 
-      <div className="pointer-events-none absolute right-0 top-32 h-72 w-72 rounded-full bg-secondary/10 blur-3xl sm:h-96 sm:w-96" />
+      <div className="pointer-events-none absolute -right-20 top-32 h-72 w-72 rounded-full bg-secondary/10 blur-3xl sm:h-96 sm:w-96" />
 
-      {/* Main content container */}
+      {/* Main content */}
       <div className="relative mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24 xl:py-28">
         <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 xl:gap-20">
-          
+
           {/* =========================
               HERO TEXT
           ========================== */}
           <div className="max-w-2xl text-center lg:text-left">
-            
+
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 bg-white px-4 py-2 text-xs font-semibold text-primary shadow-sm">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/10">
                 <CheckCircle2 size={13} />
               </span>
 
-              Simple business management
+              Built for growing businesses
             </div>
 
             {/* Heading */}
-            <h1 className="mt-6 text-[2.35rem] font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[3.7rem] xl:text-6xl">
-              Run your business
+            <h1
+              id="hero-heading"
+              className="mt-6 text-[2.35rem] font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-[3.7rem] xl:text-6xl"
+            >
+              Manage your business
               <span className="block text-primary">
-                with confidence.
+                smarter every day.
               </span>
             </h1>
 
             {/* Description */}
             <p className="mx-auto mt-6 max-w-xl text-sm leading-6 text-muted sm:text-base sm:leading-7 lg:mx-0 lg:text-lg">
-              Manage sales, products, customers, expenses and business
-              performance from one simple and powerful platform.
+              Biashara Manager helps you manage sales, products, inventory,
+              customers, expenses, credit, receipts, and business performance
+              all in one simple platform.
             </p>
 
             {/* Buttons */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
               <Link
                 href="#download"
-                className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition hover:bg-primary-dark"
+                className="group inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-dark hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 Get Started
 
                 <ArrowRight
                   size={17}
+                  aria-hidden="true"
                   className="transition-transform group-hover:translate-x-1"
                 />
               </Link>
 
               <Link
                 href="/features"
-                className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border bg-white px-7 py-3.5 text-sm font-semibold text-foreground shadow-sm transition hover:border-primary/20 hover:bg-surface"
+                className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border bg-white px-7 py-3.5 text-sm font-semibold text-foreground shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-surface focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
                 Explore Features
               </Link>
@@ -88,19 +94,28 @@ export default function Hero() {
                 >
                   <CheckCircle2
                     size={14}
+                    aria-hidden="true"
                     className="text-secondary"
                   />
+
                   {item}
                 </span>
               ))}
             </div>
+
+            {/* Small brand statement */}
+            <p className="mt-5 text-[11px] leading-5 text-muted sm:text-xs">
+              One place for your daily business operations.
+            </p>
           </div>
 
           {/* =========================
               DASHBOARD PREVIEW
           ========================== */}
-          <div className="relative mx-auto w-full max-w-[600px]">
-            
+          <div
+            className="relative mx-auto w-full max-w-[600px]"
+            aria-label="Biashara Manager dashboard preview"
+          >
             {/* Dashboard glow */}
             <div className="pointer-events-none absolute -inset-8 rounded-full bg-primary/10 blur-3xl" />
 
@@ -117,18 +132,18 @@ export default function Hero() {
 
                     <div>
                       <p className="text-[9px] text-slate-500 sm:text-[10px]">
-                        Business Overview
+                        Biashara Manager
                       </p>
 
                       <h2 className="text-xs font-semibold text-white sm:text-sm">
-                        Dashboard
+                        Business Dashboard
                       </h2>
                     </div>
                   </div>
 
                   <div className="text-right">
                     <p className="hidden text-[10px] text-slate-500 sm:block">
-                      Today's performance
+                      Today&apos;s performance
                     </p>
 
                     <p className="text-[9px] font-semibold text-emerald-400 sm:text-xs">
@@ -146,7 +161,7 @@ export default function Hero() {
                     {/* Sales */}
                     <div className="rounded-xl bg-white/[0.07] p-3 sm:rounded-2xl sm:p-4">
                       <div className="flex items-center gap-1.5 text-slate-400">
-                        <ShoppingCart size={13} />
+                        <ShoppingCart size={13} aria-hidden="true" />
 
                         <span className="text-[9px] sm:text-[10px]">
                           Sales
@@ -165,7 +180,7 @@ export default function Hero() {
                     {/* Products */}
                     <div className="rounded-xl bg-white/[0.07] p-3 sm:rounded-2xl sm:p-4">
                       <div className="flex items-center gap-1.5 text-slate-400">
-                        <Package size={13} />
+                        <Package size={13} aria-hidden="true" />
 
                         <span className="text-[9px] sm:text-[10px]">
                           Products
@@ -184,7 +199,7 @@ export default function Hero() {
                     {/* Customers */}
                     <div className="col-span-2 rounded-xl bg-white/[0.07] p-3 sm:col-span-1 sm:rounded-2xl sm:p-4">
                       <div className="flex items-center gap-1.5 text-slate-400">
-                        <Users size={13} />
+                        <Users size={13} aria-hidden="true" />
 
                         <span className="text-[9px] sm:text-[10px]">
                           Customers
@@ -207,6 +222,7 @@ export default function Hero() {
                       <div className="flex items-center gap-1.5">
                         <BarChart3
                           size={13}
+                          aria-hidden="true"
                           className="text-slate-400"
                         />
 
@@ -220,7 +236,10 @@ export default function Hero() {
                       </span>
                     </div>
 
-                    <div className="mt-4 flex h-24 items-end gap-1.5 sm:mt-5 sm:h-32 sm:gap-2">
+                    <div
+                      className="mt-4 flex h-24 items-end gap-1.5 sm:mt-5 sm:h-32 sm:gap-2"
+                      aria-hidden="true"
+                    >
                       {chart.map((height, index) => (
                         <div
                           key={index}
@@ -292,7 +311,7 @@ export default function Hero() {
             <div className="absolute -right-3 top-10 z-20 hidden rounded-2xl border border-border bg-white p-3 shadow-xl sm:block lg:-right-6">
               <div className="flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-secondary/10 text-secondary">
-                  <TrendingUp size={18} />
+                  <TrendingUp size={18} aria-hidden="true" />
                 </div>
 
                 <div>
@@ -311,7 +330,7 @@ export default function Hero() {
             <div className="absolute -bottom-5 -left-3 z-20 hidden rounded-2xl border border-border bg-white px-4 py-3 shadow-xl sm:block lg:-left-7">
               <div className="flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                  <BarChart3 size={18} />
+                  <BarChart3 size={18} aria-hidden="true" />
                 </div>
 
                 <div>

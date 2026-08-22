@@ -3,7 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const links = [
   { name: "Features", href: "/features" },
@@ -14,7 +15,11 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
 
+  // Lock page scrolling while the mobile menu is open.
   useEffect(() => {
     if (!open) {
       document.body.style.overflow = "";
@@ -25,6 +30,52 @@ export default function Navbar() {
 
     return () => {
       document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  // Close the mobile menu when navigating to another page.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // Close the menu when pressing Escape.
+  useEffect(() => {
+    if (!open) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
+
+  // Close the menu when clicking outside it.
+  useEffect(() => {
+    if (!open) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      const target = event.target as Node;
+
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target) &&
+        !buttonRef.current?.contains(target)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
     };
   }, [open]);
 
@@ -44,6 +95,7 @@ export default function Navbar() {
             width={180}
             height={55}
             priority
+            sizes="(max-width: 640px) 150px, (max-width: 1024px) 170px, 180px"
             className="h-7 w-auto object-contain sm:h-8 lg:h-9"
           />
         </Link>
@@ -53,15 +105,24 @@ export default function Navbar() {
           aria-label="Main navigation"
           className="hidden items-center gap-1 md:flex lg:gap-2"
         >
-          {links.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className="rounded-lg px-3.5 py-2.5 text-sm font-medium text-muted transition-colors hover:bg-surface hover:text-primary"
-            >
-              {link.name}
-            </Link>
-          ))}
+          {links.map((link) => {
+            const isActive = pathname === link.href;
+
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`rounded-lg px-3.5 py-2.5 text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted hover:bg-surface hover:text-primary"
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Desktop Actions */}
@@ -81,6 +142,7 @@ export default function Navbar() {
 
             <ArrowRight
               size={16}
+              aria-hidden="true"
               className="transition-transform group-hover:translate-x-1"
             />
           </Link>
@@ -88,38 +150,62 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
+          ref={buttonRef}
           type="button"
           onClick={() => setOpen((value) => !value)}
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-border bg-white text-foreground shadow-sm transition-all active:scale-95 md:hidden"
         >
-          {open ? <X size={20} /> : <Menu size={20} />}
+          {open ? (
+            <X size={20} aria-hidden="true" />
+          ) : (
+            <Menu size={20} aria-hidden="true" />
+          )}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {open && (
-        <div className="absolute left-0 right-0 top-16 border-t border-border bg-background px-5 pb-6 pt-3 shadow-xl backdrop-blur-xl sm:top-[68px] sm:px-6 md:hidden">
+        <div
+          ref={menuRef}
+          id="mobile-navigation"
+          className="absolute left-0 right-0 top-16 max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-border bg-background px-5 pb-6 pt-3 shadow-xl backdrop-blur-xl sm:top-[68px] sm:max-h-[calc(100vh-4.25rem)] sm:px-6 md:hidden"
+        >
           <nav
             aria-label="Mobile navigation"
             className="mx-auto flex w-full max-w-7xl flex-col"
           >
-            {links.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="flex min-h-12 items-center rounded-xl px-4 py-3 text-sm font-medium text-muted transition-colors hover:bg-surface hover:text-primary active:bg-surface"
-              >
-                {link.name}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const isActive = pathname === link.href;
+
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`flex min-h-12 items-center rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
+                    isActive
+                      ? "bg-primary/10 text-primary"
+                      : "text-muted hover:bg-surface hover:text-primary active:bg-surface"
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
 
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-1 flex min-h-12 items-center rounded-xl px-4 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-surface active:bg-surface"
+              aria-current={pathname === "/contact" ? "page" : undefined}
+              className={`mt-1 flex min-h-12 items-center rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+                pathname === "/contact"
+                  ? "bg-primary/10 text-primary"
+                  : "text-foreground hover:bg-surface active:bg-surface"
+              }`}
             >
               Contact
             </Link>
@@ -130,7 +216,11 @@ export default function Navbar() {
               className="mt-3 flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-dark active:scale-[0.98]"
             >
               Get Started
-              <ArrowRight size={16} />
+
+              <ArrowRight
+                size={16}
+                aria-hidden="true"
+              />
             </Link>
           </nav>
         </div>

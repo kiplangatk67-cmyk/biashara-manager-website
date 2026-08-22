@@ -23,12 +23,14 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Biashara Manager helps small and growing businesses manage sales, products, inventory, customers, expenses, credit, receipts, and business performance in one place.",
+    "Biashara Manager is a simple business management app for managing sales, products, inventory, customers, expenses, credit, receipts, and business performance in one place.",
 
   keywords: [
     "Biashara Manager",
+    "Biashara Manager app",
     "business management app",
     "business management software",
+    "small business management",
     "sales management",
     "inventory management",
     "stock management",
@@ -36,8 +38,9 @@ export const metadata: Metadata = {
     "expense tracking",
     "credit management",
     "business reports",
-    "Kenya business app",
+    "business app Kenya",
     "small business app Kenya",
+    "Kenya business management app",
   ],
 
   authors: [
@@ -48,10 +51,17 @@ export const metadata: Metadata = {
 
   creator: "Biashara Manager",
   publisher: "Biashara Manager",
+  applicationName: "Biashara Manager",
+  category: "Business",
+
+  alternates: {
+    canonical: siteUrl,
+  },
 
   robots: {
     index: true,
     follow: true,
+
     googleBot: {
       index: true,
       follow: true,
@@ -66,8 +76,19 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: "/icons/icon/icon.png",
-    apple: "/icons/apple/apple-icon.png",
+    icon: [
+      {
+        url: "/icons/icon/icon.png",
+        type: "image/png",
+      },
+    ],
+
+    apple: [
+      {
+        url: "/icons/apple/apple-icon.png",
+        type: "image/png",
+      },
+    ],
   },
 
   openGraph: {
@@ -78,12 +99,11 @@ export const metadata: Metadata = {
     description:
       "Manage sales, products, inventory, customers, expenses, credit, receipts, and business performance in one place.",
     locale: "en_KE",
+
     images: [
       {
-        url: "/icons/icon/icon.png",
-        width: 512,
-        height: 512,
-        alt: "Biashara Manager app icon",
+        url: "/logo/logo.png",
+        alt: "Biashara Manager business management app",
       },
     ],
   },
@@ -92,8 +112,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Biashara Manager | Manage Smarter. Grow Faster.",
     description:
-      "Simple business management tools for sales, inventory, customers, expenses, and business performance.",
-    images: ["/icons/icon/icon.png"],
+      "Simple business management tools for sales, inventory, customers, expenses, credit, receipts, and business performance.",
+    images: ["/logo/logo.png"],
   },
 };
 
@@ -101,6 +121,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
+  themeColor: "#2563EB",
 };
 
 export default function RootLayout({
@@ -117,10 +138,11 @@ export default function RootLayout({
         name: "Biashara Manager",
         url: siteUrl,
         logo: `${siteUrl}/logo/logo.png`,
+        email: "biasharamanager@gmail.com",
         description:
           "Biashara Manager provides simple business management tools for sales, inventory, customers, expenses, credit, receipts, and business performance.",
-        email: "biasharamanager@gmail.com",
       },
+
       {
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
@@ -132,15 +154,17 @@ export default function RootLayout({
           "@id": `${siteUrl}/#organization`,
         },
       },
+
       {
         "@type": "SoftwareApplication",
+        "@id": `${siteUrl}/#software`,
         name: "Biashara Manager",
         applicationCategory: "BusinessApplication",
         operatingSystem: "Android",
-        description:
-          "Biashara Manager helps businesses manage sales, products, inventory, customers, expenses, credit, receipts, and business performance.",
         url: siteUrl,
         image: `${siteUrl}/icons/icon/icon.png`,
+        description:
+          "Biashara Manager helps businesses manage sales, products, inventory, customers, expenses, credit, receipts, and business performance.",
         publisher: {
           "@id": `${siteUrl}/#organization`,
         },
