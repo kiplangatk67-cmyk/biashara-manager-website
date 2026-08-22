@@ -9,14 +9,14 @@ export default function Logo() {
       className="group inline-flex min-w-0 translate-y-[2px] items-center gap-0.5 sm:gap-1"
     >
       {/* Logo Mark */}
-      <div className="relative flex h-[8px] w-[8px] shrink-0 items-center justify-center overflow-hidden rounded-[2px] bg-white transition-all duration-300 group-hover:-translate-y-0.5 sm:h-[9px] sm:w-[9px] sm:rounded-[2px]">
+      <div className="relative flex h-[8px] w-[8px] shrink-0 items-center justify-center overflow-hidden rounded-[2px] bg-white sm:h-[9px] sm:w-[9px] sm:rounded-[2px]">
         <Image
           src="/logo/logo.png"
           alt="Biashara Manager logo"
           width={10}
           height={10}
           priority
-          className="h-full w-full object-contain p-0.5"
+          className="h-full w-full translate-y-[1px] object-contain p-0.5"
         />
       </div>
 
