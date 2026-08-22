@@ -19,7 +19,6 @@ export default function Navbar() {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
 
-  // Lock page scrolling while the mobile menu is open.
   useEffect(() => {
     if (!open) {
       document.body.style.overflow = "";
@@ -33,12 +32,10 @@ export default function Navbar() {
     };
   }, [open]);
 
-  // Close the mobile menu when navigating to another page.
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  // Close the menu when pressing Escape.
   useEffect(() => {
     if (!open) return;
 
@@ -56,7 +53,6 @@ export default function Navbar() {
     };
   }, [open]);
 
-  // Close the menu when clicking outside it.
   useEffect(() => {
     if (!open) return;
 
@@ -81,14 +77,13 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-xl">
-      {/* Main Navbar */}
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 sm:h-[68px] sm:px-6 lg:h-[72px] lg:px-8">
 
         {/* Logo */}
         <Link
           href="/"
           aria-label="Biashara Manager Home"
-          className="flex shrink-0 translate-y-[12px] items-center"
+          className="flex shrink-0 translate-y-[25px] items-center"
         >
           <Image
             src="/logo/logo.png"
@@ -97,7 +92,7 @@ export default function Navbar() {
             height={32}
             priority
             sizes="(max-width: 640px) 90px, (max-width: 1024px) 100px, 110px"
-            className="h-4 w-auto translate-y-[1px] object-contain sm:h-[18px] lg:h-5"
+            className="h-4 w-auto object-contain sm:h-[18px] lg:h-5"
           />
         </Link>
 
