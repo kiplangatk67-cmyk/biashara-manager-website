@@ -6,15 +6,15 @@ export default function Logo() {
     <Link
       href="/"
       aria-label="Biashara Manager home"
-      className="group inline-flex min-w-0 items-center gap-1 sm:gap-1.5"
+      className="group inline-flex min-w-0 items-center gap-0.5 sm:gap-1"
     >
       {/* Logo Mark */}
-      <div className="relative flex h-[18px] w-[18px] shrink-0 items-center justify-center overflow-hidden rounded-[5px] bg-white transition-all duration-300 group-hover:-translate-y-0.5 sm:h-5 sm:w-5 sm:rounded-md">
+      <div className="relative flex h-[8px] w-[8px] shrink-0 items-center justify-center overflow-hidden rounded-[2px] bg-white transition-all duration-300 group-hover:-translate-y-0.5 sm:h-[9px] sm:w-[9px] sm:rounded-[2px]">
         <Image
           src="/logo/logo.png"
           alt="Biashara Manager logo"
-          width={20}
-          height={20}
+          width={10}
+          height={10}
           priority
           className="h-full w-full object-contain p-0.5"
         />
@@ -22,11 +22,11 @@ export default function Logo() {
 
       {/* Brand Name */}
       <div className="min-w-0 leading-none">
-        <span className="block truncate text-[9px] font-extrabold tracking-[-0.02em] text-foreground sm:text-[10px]">
+        <span className="block truncate text-[4px] font-extrabold tracking-[-0.02em] text-foreground sm:text-[4.5px]">
           Biashara
         </span>
 
-        <span className="mt-0.5 block text-[4.5px] font-bold tracking-[0.18em] text-primary sm:text-[5.5px] sm:tracking-[0.2em]">
+        <span className="mt-0.5 block text-[2px] font-bold tracking-[0.16em] text-primary sm:text-[2.5px] sm:tracking-[0.18em]">
           MANAGER
         </span>
       </div>
