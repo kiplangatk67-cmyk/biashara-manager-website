@@ -83,20 +83,21 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-xl">
       {/* Main Navbar */}
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-5 sm:h-[68px] sm:px-6 lg:h-[72px] lg:px-8">
+
         {/* Logo */}
         <Link
           href="/"
           aria-label="Biashara Manager Home"
-          className="flex shrink-0 items-center"
+          className="flex shrink-0 translate-y-[3px] items-center"
         >
           <Image
             src="/logo/logo.png"
             alt="Biashara Manager"
-            width={180}
-            height={55}
+            width={90}
+            height={32}
             priority
-            sizes="(max-width: 640px) 150px, (max-width: 1024px) 170px, 180px"
-            className="h-7 w-auto object-contain sm:h-8 lg:h-9"
+            sizes="(max-width: 640px) 90px, (max-width: 1024px) 100px, 110px"
+            className="h-4 w-auto translate-y-[1px] object-contain sm:h-[18px] lg:h-5"
           />
         </Link>
 
