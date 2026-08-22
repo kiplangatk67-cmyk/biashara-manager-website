@@ -88,7 +88,7 @@ export default function Navbar() {
         <Link
           href="/"
           aria-label="Biashara Manager Home"
-          className="flex shrink-0 translate-y-[3px] items-center"
+          className="flex shrink-0 translate-y-[12px] items-center"
         >
           <Image
             src="/logo/logo.png"
