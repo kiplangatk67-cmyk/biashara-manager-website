@@ -23,14 +23,12 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Biashara Manager is a simple business management app for managing sales, products, inventory, customers, expenses, credit, receipts, and business performance in one place.",
+    "Biashara Manager helps small and growing businesses manage sales, products, inventory, customers, expenses, credit, receipts, and business performance in one place.",
 
   keywords: [
     "Biashara Manager",
-    "Biashara Manager app",
     "business management app",
     "business management software",
-    "small business management",
     "sales management",
     "inventory management",
     "stock management",
@@ -38,9 +36,8 @@ export const metadata: Metadata = {
     "expense tracking",
     "credit management",
     "business reports",
-    "business app Kenya",
+    "Kenya business app",
     "small business app Kenya",
-    "Kenya business management app",
   ],
 
   authors: [
@@ -51,13 +48,6 @@ export const metadata: Metadata = {
 
   creator: "Biashara Manager",
   publisher: "Biashara Manager",
-  applicationName: "Biashara Manager",
-
-  category: "Business",
-
-  alternates: {
-    canonical: siteUrl,
-  },
 
   robots: {
     index: true,
@@ -76,19 +66,8 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: [
-      {
-        url: "/icons/icon/icon.png",
-        type: "image/png",
-      },
-    ],
-
-    apple: [
-      {
-        url: "/icons/apple/apple-icon.png",
-        type: "image/png",
-      },
-    ],
+    icon: "/icons/icon/icon.png",
+    apple: "/icons/apple/apple-icon.png",
   },
 
   openGraph: {
@@ -99,13 +78,12 @@ export const metadata: Metadata = {
     description:
       "Manage sales, products, inventory, customers, expenses, credit, receipts, and business performance in one place.",
     locale: "en_KE",
-
     images: [
       {
-        url: "/logo/logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Biashara Manager business management app",
+        url: "/icons/icon/icon.png",
+        width: 512,
+        height: 512,
+        alt: "Biashara Manager app icon",
       },
     ],
   },
@@ -114,8 +92,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Biashara Manager | Manage Smarter. Grow Faster.",
     description:
-      "Simple business management tools for sales, inventory, customers, expenses, credit, receipts, and business performance.",
-    images: ["/logo/logo.png"],
+      "Simple business management tools for sales, inventory, customers, expenses, and business performance.",
+    images: ["/icons/icon/icon.png"],
   },
 };
 
@@ -123,7 +101,6 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#2563EB",
 };
 
 export default function RootLayout({
@@ -131,11 +108,60 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${siteUrl}/#organization`,
+        name: "Biashara Manager",
+        url: siteUrl,
+        logo: `${siteUrl}/logo/logo.png`,
+        description:
+          "Biashara Manager provides simple business management tools for sales, inventory, customers, expenses, credit, receipts, and business performance.",
+        email: "biasharamanager@gmail.com",
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${siteUrl}/#website`,
+        url: siteUrl,
+        name: "Biashara Manager",
+        description:
+          "Simple business management tools for small and growing businesses.",
+        publisher: {
+          "@id": `${siteUrl}/#organization`,
+        },
+      },
+      {
+        "@type": "SoftwareApplication",
+        name: "Biashara Manager",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "Android",
+        description:
+          "Biashara Manager helps businesses manage sales, products, inventory, customers, expenses, credit, receipts, and business performance.",
+        url: siteUrl,
+        image: `${siteUrl}/icons/icon/icon.png`,
+        publisher: {
+          "@id": `${siteUrl}/#organization`,
+        },
+      },
+    ],
+  };
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+      </head>
+
       <body className="min-h-full w-full overflow-x-hidden bg-background text-foreground">
         {children}
       </body>
